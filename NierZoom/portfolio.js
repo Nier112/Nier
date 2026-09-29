@@ -1,6 +1,7 @@
 (function () {
   const source = window.PORTFOLIO_DATA || { webWorks: [], behance: [] };
-  const asset = (path) => String(path || "").replace(/^NierZooM-v3\//, "");
+  const assetRoot = document.body.dataset.assetRoot || "";
+  const asset = (path) => `${assetRoot}${String(path || "").replace(/^NierZooM-v3\//, "")}`;
 
   const titles = {
     "web-greattop": "Greattop Technology",

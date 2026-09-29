@@ -5,12 +5,12 @@
   const app = document.getElementById("app");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
-  const href = (work) => work.type === "web" ? work.externalUrl : `project.html?id=${encodeURIComponent(work.key)}`;
-  const projectHref = (work) => `project.html?id=${encodeURIComponent(work.key)}`;
+  const href = (work) => work.type === "web" ? work.externalUrl : `project/${encodeURIComponent(work.key)}/`;
+  const projectHref = (work) => `project/${encodeURIComponent(work.key)}/`;
   const target = (work) => work.type === "web" ? ' target="_blank" rel="noreferrer noopener"' : "";
 
   function nav() {
-    const links = [["home", "NierZooM.", "index.html"], ["works", "Work", "works.html"], ["about", "About", "about.html"], ["contact", "Contact", "contact.html"]];
+    const links = [["home", "NierZooM.", "./"], ["works", "Work", "work/"], ["about", "About", "about/"], ["contact", "Contact", "contact/"]];
     return `<nav class="top-nav" aria-label="Primary">${links.map(([key,label,url]) => `<a href="${url}"${page === key ? ' aria-current="page"' : ""}>${label}</a>`).join("")}<button class="mobile-toggle" type="button" aria-expanded="false">Menu</button></nav><nav class="mobile-nav" aria-label="Mobile">${links.slice(1).map(([,label,url]) => `<a href="${url}">${label}</a>`).join("")}</nav>`;
   }
 
@@ -306,7 +306,7 @@
   }
 
   function projectTemplate() {
-    const id = new URLSearchParams(location.search).get("id");
+    const id = document.body.dataset.projectId || new URLSearchParams(location.search).get("id");
     const work = works.find((item) => item.key === id) || works[3];
     document.title = `${work.title} — NierZooM`;
     const index = works.indexOf(work);
@@ -315,7 +315,7 @@
     const media = projectMediaMarkup(work);
     const description = String(work.description || "").trim();
     const descriptionMarkup = description ? `<p>${escapeHtml(description)}</p>` : "";
-    return `<header class="project-title"><p>${escapeHtml(work.category)} / ${work.year}</p><h1>${escapeHtml(work.title)}</h1></header><section class="project-description reveal"><div class="project-facts"><span>Year / ${work.year}</span><span>Scope / ${escapeHtml(work.category)}</span><span>Images / ${work.gallery.length}</span>${work.externalUrl ? `<a href="${escapeHtml(work.externalUrl)}" target="_blank" rel="noreferrer noopener">Visit website ↗</a>` : ""}</div>${descriptionMarkup}</section><section class="project-media">${media}</section><nav class="project-nav"><a href="${projectHref(previous)}">Prev</a><a href="works.html">Back</a><a href="${projectHref(next)}">Next</a></nav>`;
+    return `<header class="project-title"><p>${escapeHtml(work.category)} / ${work.year}</p><h1>${escapeHtml(work.title)}</h1></header><section class="project-description reveal"><div class="project-facts"><span>Year / ${work.year}</span><span>Scope / ${escapeHtml(work.category)}</span><span>Images / ${work.gallery.length}</span>${work.externalUrl ? `<a href="${escapeHtml(work.externalUrl)}" target="_blank" rel="noreferrer noopener">Visit website ↗</a>` : ""}</div>${descriptionMarkup}</section><section class="project-media">${media}</section><nav class="project-nav"><a href="${projectHref(previous)}">Prev</a><a href="work/">Back</a><a href="${projectHref(next)}">Next</a></nav>`;
   }
 
   const templates = { home: homeTemplate, works: worksTemplate, about: aboutTemplate, contact: contactTemplate, project: projectTemplate };

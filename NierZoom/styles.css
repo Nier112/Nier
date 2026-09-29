@@ -10,6 +10,11 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--black); background: var(--white); font-family: Arial, Helvetica, "Noto Sans TC", sans-serif; font-size: 14px; line-height: 1.4; letter-spacing: 0; }
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: nz-page-out .16s ease-out both; }
+::view-transition-new(root) { animation: nz-page-in .28s ease-out both; }
+@keyframes nz-page-out { to { opacity: 0; } }
+@keyframes nz-page-in { from { opacity: 0; } }
 body.menu-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea, select { color: inherit; font: inherit; letter-spacing: 0; }
@@ -139,7 +144,7 @@ img, video { display: block; max-width: 100%; }
 .gsap-text-word { display: inline-block; white-space: nowrap; }
 .gsap-text-char { display: inline-block; will-change: opacity, transform; }
 .reveal { opacity: 0; transform: translateY(28px); }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; } .fold-char-inner, .gsap-text-char { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; } .fold-char-inner, .gsap-text-char { transition: none; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; } }
 
 @media (max-width: 720px) {
   :root { --pad: 15px; --nav-h: 54px; }
