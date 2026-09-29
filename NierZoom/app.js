@@ -5,8 +5,25 @@
   const app = document.getElementById("app");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
-  const href = (work) => work.type === "web" ? work.externalUrl : `project/${encodeURIComponent(work.key)}/`;
-  const projectHref = (work) => `project/${encodeURIComponent(work.key)}/`;
+  const projectPaths = {
+    "web-greattop": "greattop",
+    "web-matsuo": "matsuo",
+    "web-hikariro": "hikariro",
+    "behance-216540203": "event-logotype",
+    "behance-140949083": "color-contact-lens",
+    "behance-139328113": "color-contrast-lens",
+    "behance-136767675": "marketlong-fresh",
+    "behance-123483253": "product-photography",
+    "behance-123101167": "baby-body-wash",
+    "behance-121241289": "collagen-packaging",
+    "behance-121306305": "master-tai",
+    "behance-120740315": "ic-studio",
+    "behance-117426693": "narrate",
+    "local-scented-card": "scented-hanging-card",
+    "local-city-god": "kinmen-city-god",
+  };
+  const href = (work) => work.type === "web" ? work.externalUrl : projectHref(work);
+  const projectHref = (work) => `project/${encodeURIComponent(projectPaths[work.key] || work.key)}/`;
   const target = (work) => work.type === "web" ? ' target="_blank" rel="noreferrer noopener"' : "";
 
   function nav() {
