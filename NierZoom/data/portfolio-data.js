@@ -608,14 +608,19 @@ window.PORTFOLIO_DATA = {
       "caseStudy": {
         "lead": "Luxora 是台灣松尾在日本的分公司據點形象網站。內容以日本市場的溝通需求為核心，介紹松尾相關產品，也呈現防火布料商品，建立從品牌認識、產品探索到聯絡諮詢的清楚路徑。",
         "iconIntro": {
-          "eyebrow": "首頁 ICON 導覽",
-          "title": "用圖像快速辨識產品類別",
-          "body": "首頁以四組簡潔線條 ICON 對應主要產品，讓訪客不必先讀完大量文字，就能快速理解 Luxora 涵蓋的產品範圍。",
+          "eyebrow": "LUXORA 官網首頁／SOLUTIONS",
+          "title": "FIVE FIELDS, ONE STANDARD",
+          "sourceTitle": "光から機能性まで、ひとつの基準で。",
+          "translation": "從光線到功能性，皆以同一標準呈現。",
+          "note": "以下保留官網的品項名稱與日文說明，中文為對照翻譯。",
+          "image": "assets/projects/17-luxora/07-luxora-home-icons.png",
+          "alt": "Luxora 官網 Solutions 區塊原始畫面，包含 5 組產品 ICON 與說明",
           "items": [
-            { "icon": "lighting", "title": "LED 照明／電源", "body": "依空間需求選擇照明與電源。" },
-            { "icon": "charger", "title": "充電器", "body": "對應不同用途的充電需求。" },
-            { "icon": "dimming", "title": "調光控制", "body": "以穩定控制調整光線表現。" },
-            { "icon": "fireproof", "title": "防火布料商品", "body": "呈現防火布製袋等商品類別。" }
+            { "title": "LED照明／LED電源", "source": "空間に合わせたLED照明・LED電源", "translation": "配合空間需求的 LED 照明／LED 電源" },
+            { "title": "CHARGERS", "source": "用途に合わせた各種充電器", "translation": "配合用途的各類充電器" },
+            { "title": "DIMMING CONTROL", "source": "自然で安定した調光制御", "translation": "自然且穩定的調光控制" },
+            { "title": "FIREPROOF BAGS", "source": "用途に合わせた防火布製バッグ", "translation": "配合用途的防火布製袋" },
+            { "title": "CUSTOM SOLUTIONS", "source": "要件に応えるODM・OEM開発", "translation": "回應需求的 ODM・OEM 開發" }
           ]
         },
         "sections": [

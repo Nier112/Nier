@@ -146,7 +146,10 @@
       description: item.description || "",
       caseStudy: item.caseStudy ? {
         lead: item.caseStudy.lead || "",
-        iconIntro: item.caseStudy.iconIntro || null,
+        iconIntro: item.caseStudy.iconIntro ? {
+          ...item.caseStudy.iconIntro,
+          image: asset(item.caseStudy.iconIntro.image),
+        } : null,
         sections: (item.caseStudy.sections || []).map((section) => ({ ...section, image: asset(section.image) })),
       } : null,
       externalUrl: item.sourceUrl || item.url,
