@@ -591,6 +591,64 @@ window.PORTFOLIO_DATA = {
       "localVideo": "assets/videos/hikariro-entry.mp4",
       "sourceUrl": "https://hikariro.id/",
       "year": 2026
+    },
+    {
+      "id": "luxora",
+      "title": "Luxora Corporate Website",
+      "url": "https://www.luxora.co.jp/",
+      "category": "Corporate Website",
+      "added": true,
+      "host": "www.luxora.co.jp",
+      "pageTitle": "Luxora | Lighting and Power Solutions",
+      "description": "為台灣松尾在日本的分公司據點打造形象網站，整合松尾相關產品與防火布料商品，讓日本市場訪客能快速認識品牌服務與產品範圍。",
+      "summary": "LIGHT & FIREPROOF SOLUTIONS",
+      "localCover": "assets/projects/17-luxora/01-luxora-home.png",
+      "sourceUrl": "https://www.luxora.co.jp/",
+      "year": 2026,
+      "caseStudy": {
+        "lead": "Luxora 是台灣松尾在日本的分公司據點形象網站。內容以日本市場的溝通需求為核心，介紹松尾相關產品，也呈現防火布料商品，建立從品牌認識、產品探索到聯絡諮詢的清楚路徑。",
+        "iconIntro": {
+          "eyebrow": "首頁 ICON 導覽",
+          "title": "用圖像快速辨識產品類別",
+          "body": "首頁以四組簡潔線條 ICON 對應主要產品，讓訪客不必先讀完大量文字，就能快速理解 Luxora 涵蓋的產品範圍。",
+          "items": [
+            { "icon": "lighting", "title": "LED 照明／電源", "body": "依空間需求選擇照明與電源。" },
+            { "icon": "charger", "title": "充電器", "body": "對應不同用途的充電需求。" },
+            { "icon": "dimming", "title": "調光控制", "body": "以穩定控制調整光線表現。" },
+            { "icon": "fireproof", "title": "防火布料商品", "body": "呈現防火布製袋等商品類別。" }
+          ]
+        },
+        "sections": [
+          {
+            "number": "01",
+            "title": "從日本據點出發，建立品牌入口",
+            "body": "以日本在地品牌網站作為主要接觸點，透過品牌介紹與服務內容，說明 Luxora 的據點角色，並讓訪客能循序了解產品與聯絡方式。",
+            "image": "assets/projects/17-luxora/02-luxora-about.png",
+            "alt": "Luxora 品牌介紹頁，呈現日本據點與品牌理念"
+          },
+          {
+            "number": "02",
+            "title": "整合照明、電力與防火布料商品",
+            "body": "產品內容涵蓋 LED 照明、LED 電源、充電器、調光器與防火布料相關商品。不同產品線在同一品牌入口中清楚呈現，並以使用情境及規格諮詢為線索，方便訪客依需求進一步洽詢。",
+            "image": "assets/projects/17-luxora/03-luxora-products.png",
+            "alt": "Luxora 解決方案頁，呈現照明、電力與防火布料商品服務"
+          },
+          {
+            "number": "04",
+            "title": "以品質流程建立信任感",
+            "body": "品質頁將需求確認、設計驗證與穩定供應等服務概念整理成容易理解的資訊，補足產品介紹以外的合作流程與品牌承諾。",
+            "image": "assets/projects/17-luxora/05-luxora-quality.png",
+            "alt": "Luxora 品質頁，呈現需求整理、設計驗證與穩定供應"
+          },
+          {
+            "number": "05",
+            "title": "連結日本在地服務與諮詢",
+            "body": "透過聯絡資訊與日本據點資料，讓網站不只展示產品，也成為客戶提出需求、進一步討論規格與合作方式的入口。",
+            "image": "assets/projects/17-luxora/06-luxora-japan-office.png",
+            "alt": "Luxora 聯絡頁與日本據點聯絡資訊"
+          }
+        ]
+      }
     }
   ]
 };

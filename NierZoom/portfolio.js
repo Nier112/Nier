@@ -7,6 +7,7 @@
     "web-greattop": "Greattop Technology",
     "web-matsuo": "Matsuo Corporate Website",
     "web-hikariro": "HikariRO",
+    "web-luxora": "Luxora Corporate Website",
     "behance-216540203": "Event Logotype Design",
     "behance-140949083": "Color Contact Lens",
     "behance-139335911": "Eyewear Landing Page",
@@ -129,6 +130,7 @@
       "HIKARIRO_CIS_Landscape_2026_v2_page-0017.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0018.jpg",
     ]),
     "web-matsuo": projectMedia("02-matsuo", ["Home_01.png"]),
+    "web-luxora": projectMedia("17-luxora", ["01-luxora-home.png"]),
   };
 
   const webWorks = source.webWorks.map((item) => {
@@ -141,6 +143,12 @@
       year: item.year || 2026,
       cover,
       gallery: webDetails[key]?.length ? webDetails[key] : item.localVideo ? [cover, asset(item.localVideo)] : [cover],
+      description: item.description || "",
+      caseStudy: item.caseStudy ? {
+        lead: item.caseStudy.lead || "",
+        iconIntro: item.caseStudy.iconIntro || null,
+        sections: (item.caseStudy.sections || []).map((section) => ({ ...section, image: asset(section.image) })),
+      } : null,
       externalUrl: item.sourceUrl || item.url,
       type: "web",
     };
