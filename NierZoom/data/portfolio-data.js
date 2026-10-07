@@ -654,6 +654,63 @@ window.PORTFOLIO_DATA = {
           }
         ]
       }
+    },
+    {
+      "id": "proinsurance",
+      "title": "普祿保險經紀人 Pro Insurance",
+      "url": "https://www.proinsurance.tw/",
+      "category": "Insurance Broker Website",
+      "added": true,
+      "host": "www.proinsurance.tw",
+      "pageTitle": "普祿保險經紀人有限公司",
+      "description": "以「普惠大眾，祿享安康」為品牌主張，整合保險商品、理賠資訊、知識法規與聯絡入口的保險經紀人公司網站。",
+      "summary": "普惠大眾，祿享安康",
+      "localCover": "assets/projects/18-proinsurance/01-proinsurance-home.webp",
+      "sourceUrl": "https://www.proinsurance.tw/",
+      "year": 2026,
+      "caseStudy": {
+        "eyebrow": "保險經紀人公司網站 / 2026",
+        "facts": ["年份 / 2026", "類型 / 保險經紀人公司網站", "內容 / 商品・理賠・知識法規"],
+        "coverAlt": "普祿保險經紀人官網首頁主視覺",
+        "lead": "普祿保險經紀人有限公司以「普惠大眾，祿享安康」為品牌主張。網站將公司介紹、保險商品、理賠資訊與知識法規整理在清楚的導覽架構中，讓訪客依照需求找到相應的服務與資訊入口。",
+        "sections": [
+          {
+            "number": "01",
+            "title": "以品牌主張作為認識入口",
+            "body": "首頁以「普惠大眾，祿享安康」及「您的終身保險管家」介紹品牌定位，並安排服務入口，串接商品認識與顧問聯絡資訊。",
+            "image": "assets/projects/18-proinsurance/02-proinsurance-about.webp",
+            "alt": "普祿保險經紀人關於頁的團隊形象圖片"
+          },
+          {
+            "number": "02",
+            "title": "分層呈現人身保險商品",
+            "body": "保險商品頁將人身保險整理為醫療險、意外險、儲蓄壽險與團體保險，並以分類與簡要說明協助訪客瀏覽不同保障項目。",
+            "image": "assets/projects/18-proinsurance/03-proinsurance-consultation.webp",
+            "alt": "普祿官網保險顧問與客戶諮詢畫面"
+          },
+          {
+            "number": "03",
+            "title": "涵蓋個人生活與企業情境",
+            "body": "產物保險內容列出汽機車責任險、旅遊平安險、火險、雇主責任險、產品責任險與工程險，讓個人及企業訪客能依情境探索服務項目。",
+            "image": "assets/projects/18-proinsurance/04-proinsurance-service.webp",
+            "alt": "普祿保險經紀人網站服務情境圖片"
+          },
+          {
+            "number": "04",
+            "title": "集中整理理賠服務資訊",
+            "body": "理賠專區依常見需求呈現應備文件與文件下載入口，包含醫療、汽車、旅遊不便及住宅火險等類別，方便訪客查找後續辦理資訊。",
+            "image": "assets/projects/18-proinsurance/06-proinsurance-claims.webp",
+            "alt": "普祿官網理賠與文件資訊頁面所用圖片"
+          },
+          {
+            "number": "05",
+            "title": "提供知識與法規查詢入口",
+            "body": "知識與法規頁彙整常見病房費用表、保險法、業務員法遵學習，以及勞工退休金、全民健康保險與信託等法規連結，並提示以主管機關及官方平台資訊為準。",
+            "image": "assets/projects/18-proinsurance/05-proinsurance-knowledge.webp",
+            "alt": "普祿官網知識與法規內容的醫療文件主視覺"
+          }
+        ]
+      }
     }
   ]
 };

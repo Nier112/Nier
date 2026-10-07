@@ -8,6 +8,7 @@
     "web-matsuo": "Matsuo Corporate Website",
     "web-hikariro": "HikariRO",
     "web-luxora": "Luxora Corporate Website",
+    "web-proinsurance": "Pro Insurance",
     "behance-216540203": "Event Logotype Design",
     "behance-140949083": "Color Contact Lens",
     "behance-139335911": "Eyewear Landing Page",
