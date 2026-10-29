@@ -80,6 +80,8 @@ img, video { display: block; max-width: 100%; }
 .work-tile-info span { font-size: 12px; text-align: right; }
 .work-preview-trigger { position: absolute; z-index: 4; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 14px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.8); color: #fff; background: rgba(17,17,17,.82); font: inherit; font-size: 11px; text-transform: uppercase; opacity: 0; transform: translateY(7px); transition: opacity 220ms ease, transform 280ms cubic-bezier(.2,.7,.2,1), background-color 180ms ease; }
 .work-entry:hover .work-preview-trigger, .work-entry:focus-within .work-preview-trigger { opacity: 1; transform: translateY(0); }
+.work-preview-trigger { opacity: 1; transform: none; }
+.work-preview-actions a[hidden] { display: none; }
 .work-preview-trigger:hover { background: #111; }
 .work-preview-trigger span { transition: transform 200ms ease; }
 .work-preview-trigger:hover span { transform: translate(2px, -2px); }
