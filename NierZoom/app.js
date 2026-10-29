@@ -308,11 +308,11 @@
 
   function workTile(work) {
     const tileContent = `<div class="work-tile-media"><img src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.title)}" loading="lazy" decoding="async"></div><div class="work-tile-info"><h2>${escapeHtml(work.title)}</h2><span>${escapeHtml(work.category)}<br>${work.year}${work.type === "web" ? " ↗" : ""}</span></div>`;
-    return `<article class="work-entry"><a class="work-tile reveal" href="${projectHref(work)}">${tileContent}</a></article>`;
+    return `<article class="work-entry"><a class="work-tile reveal" href="${projectHref(work)}">${tileContent}</a><button class="work-preview-trigger" type="button" data-preview-work="${escapeHtml(work.key)}" aria-label="Preview ${escapeHtml(work.title)}" aria-haspopup="dialog">Preview <span aria-hidden="true">↗</span></button></article>`;
   }
 
   function worksTemplate() {
-    return `<header class="page-heading"><h1>Selected Work</h1></header><div class="work-toolbar"><span class="work-count">${String(works.length).padStart(2,"0")} projects</span><div class="view-switch"><button type="button" class="active" data-view="grid">Grid</button><span>/</span><button type="button" data-view="list">List</button></div></div><section class="work-collection grid" id="work-collection">${works.map(workTile).join("")}</section>`;
+    return `<header class="page-heading"><h1>Selected Work</h1></header><div class="work-toolbar"><span class="work-count">${String(works.length).padStart(2,"0")} projects</span><div class="view-switch"><button type="button" class="active" data-view="grid" aria-pressed="true">Grid</button><span>/</span><button type="button" data-view="list" aria-pressed="false">List</button></div></div><section class="work-collection grid" id="work-collection">${works.map(workTile).join("")}</section><dialog class="work-preview" id="work-preview" aria-labelledby="work-preview-title"><div class="work-preview-panel"><button class="work-preview-close" type="button" aria-label="Close preview">×</button><figure class="work-preview-visual"><img data-preview-image alt="" decoding="async"></figure><div class="work-preview-copy"><p class="work-preview-meta" data-preview-meta></p><h2 id="work-preview-title" data-preview-title></h2><p class="work-preview-description" data-preview-description></p><div class="work-preview-actions"><a data-preview-case href="#">Explore project <span aria-hidden="true">↗</span></a><a data-preview-live href="#" target="_blank" rel="noreferrer noopener" hidden>Visit website <span aria-hidden="true">↗</span></a></div></div></div></dialog>`;
   }
 
   function aboutTemplate() {
@@ -362,10 +362,68 @@
 
   document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => {
     const collection = document.getElementById("work-collection");
-    document.querySelectorAll("[data-view]").forEach((item) => item.classList.toggle("active", item === button));
+    document.querySelectorAll("[data-view]").forEach((item) => {
+      const active = item === button;
+      item.classList.toggle("active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
     collection.className = `work-collection ${button.dataset.view}`;
   }));
   document.getElementById("work-collection")?.addEventListener("pointermove", (event) => { event.currentTarget.style.setProperty("--preview-x", `${event.clientX}px`); event.currentTarget.style.setProperty("--preview-y", `${event.clientY}px`); });
+
+  const workPreview = document.getElementById("work-preview");
+  if (workPreview) {
+    const previewImage = workPreview.querySelector("[data-preview-image]");
+    const previewMeta = workPreview.querySelector("[data-preview-meta]");
+    const previewTitle = workPreview.querySelector("[data-preview-title]");
+    const previewDescription = workPreview.querySelector("[data-preview-description]");
+    const caseLink = workPreview.querySelector("[data-preview-case]");
+    const liveLink = workPreview.querySelector("[data-preview-live]");
+    let closeTimer;
+    const closePreview = () => {
+      if (reducedMotion) {
+        workPreview.close();
+        return;
+      }
+      workPreview.classList.remove("is-open");
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        if (workPreview.open) workPreview.close();
+      }, 240);
+    };
+
+    document.querySelectorAll("[data-preview-work]").forEach((button) => button.addEventListener("click", () => {
+      const work = works.find((item) => item.key === button.dataset.previewWork);
+      if (!work) return;
+      previewImage.src = work.cover;
+      previewImage.alt = work.title;
+      previewMeta.textContent = `${work.category} / ${work.year}`;
+      previewTitle.textContent = work.title;
+      previewDescription.textContent = work.description || "Selected project from the portfolio.";
+      caseLink.href = projectHref(work);
+      liveLink.hidden = !work.externalUrl;
+      if (work.externalUrl) liveLink.href = work.externalUrl;
+      if (!reducedMotion) workPreview.classList.remove("is-open");
+      workPreview.showModal();
+      if (reducedMotion) workPreview.classList.add("is-open");
+      else requestAnimationFrame(() => workPreview.classList.add("is-open"));
+      workPreview.querySelector(".work-preview-close")?.focus();
+    }));
+
+    workPreview.querySelector(".work-preview-close")?.addEventListener("click", closePreview);
+    workPreview.addEventListener("click", (event) => {
+      if (event.target === workPreview) closePreview();
+    });
+    workPreview.addEventListener("cancel", (event) => {
+      if (reducedMotion) return;
+      event.preventDefault();
+      closePreview();
+    });
+    workPreview.addEventListener("close", () => {
+      window.clearTimeout(closeTimer);
+      if (!reducedMotion) workPreview.classList.remove("is-open");
+    });
+  }
 
   document.getElementById("contact-form")?.addEventListener("submit", (event) => {
     event.preventDefault();
